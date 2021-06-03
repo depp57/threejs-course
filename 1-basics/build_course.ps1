@@ -2,7 +2,7 @@ $course_name = $args[0]
 $temp_folder = "temp"
 
 $path_to_static_old = "$temp_folder/static"
-$path_to_static_new = "$course_name/static"
+$path_to_static_new = "$course_name/public"
 
 $path_to_script_old = "$temp_folder/src/script.js"
 $path_to_script_new = "$course_name/src/main.ts"
