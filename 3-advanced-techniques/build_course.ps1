@@ -22,6 +22,7 @@ Set-Location ./$course_name
 Invoke-Expression "npm install"
 Invoke-Expression "npm install three @types/three"
 Remove-Item -LiteralPath "./src/vite-env.d.ts" -Force
+Set-Content "./readme.md" "# $course_name"
 
 
 Set-Location ../
