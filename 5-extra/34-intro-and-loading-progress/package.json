@@ -1,0 +1,19 @@
+{
+  "name": "34-intro-and-loading-progress",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.9.5"
+  },
+  "dependencies": {
+    "@types/three": "^0.140.0",
+    "three": "^0.140.1",
+    "gsap": "^3.10.4"
+  }
+}
