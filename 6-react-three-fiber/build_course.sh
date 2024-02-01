@@ -12,42 +12,34 @@ fi
 courseName=$1
 tempFolder=temp
 
-pathToStaticOld=$tempFolder/static
-pathToStaticNew=$courseName/public
+pathToPublicTemp=$tempFolder/public
+pathToPublic=$courseName
 
-pathToScriptOld=$tempFolder/src/script.js
-pathToScriptNew=$courseName/src/main.ts
-
-pathToCssOld=$tempFolder/src/styles.css
-pathToCssNew=$courseName/src/styles.css
+pathToSourceTemp=$tempFolder/src
+pathToSource=$courseName
 
 echo "building $courseName ..."
 
 unzip -q "$courseName" -d $tempFolder
 
-npm init @vitejs/app "$courseName" --template vanilla-ts
+npm create vite@latest "$courseName" --template vanilla-ts
 cd "$courseName" || exit 1
-npm install
-npm install three @types/three
-rm src/vite-env.d.ts
+rm src/*
+rm public/*
 touch readme.md
 echo "# $courseName" > readme.md
-
 cd ..
-if [ -d $pathToStaticOld ]; then
-  mv $pathToStaticOld "$pathToStaticNew"
-fi
 
-if [ -d $pathToScriptOld ]; then
-  mv $pathToScriptOld "$pathToScriptNew"
-fi
-
-if [ -d $pathToCssOld ]; then
-  mv $pathToCssOld "$pathToCssNew"
-fi
+mv $pathToPublicTemp "$pathToPublic"
+mv $pathToSourceTemp "$pathToSource"
+mv $tempFolder/package.json $courseName/package.json
+mv $tempFolder/vite.config.js $courseName/vite.config.js
 
 rm -r $tempFolder
 rm -r "$courseName.zip"
+rm $courseName/index.html
+
+cd "$courseName" && npm install
 
 echo "done!"
 exit 0
