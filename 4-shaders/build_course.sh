@@ -12,7 +12,7 @@ fi
 courseName=$1
 tempFolder=temp
 
-pathToPublicTemp=$tempFolder/public
+pathToPublicTemp=$tempFolder/static
 pathToPublic=$courseName
 
 pathToSourceTemp=$tempFolder/src
