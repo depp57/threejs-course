@@ -14,7 +14,7 @@ vec3 pointLight(vec3 color, float intensity, vec3 normal, vec3 lightPosition, ve
 
     // Decay
     float distance = length(lightDistance);
-    float decay = 1.0 / distance * lightDecay;
+    float decay = 1.0 - distance * lightDecay;
     decay = max(decay, 0.0);
 
     return color * intensity * decay * (shading + specular);
